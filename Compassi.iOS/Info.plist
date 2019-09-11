@@ -36,5 +36,7 @@
 	<string>Assets.xcassets/AppIcon.appiconset</string>
 	<key>CFBundleShortVersionString</key>
 	<string>1</string>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>Compassi needs your location to calculate angles</string>
 </dict>
 </plist>

@@ -10,7 +10,11 @@ namespace Compassi
         {
             InitializeComponent();
 
-            MainPage = new NavigationPage(new Views.MainView()) { Visual = VisualMarker.Material };
+            MainPage = new NavigationPage(new Views.MainView()
+            {
+                Visual = VisualMarker.Material,
+                BackgroundColor = Color.FromHex("#121212")
+            });
         }
 
         protected override void OnStart()

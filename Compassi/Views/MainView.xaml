@@ -11,11 +11,14 @@
         <ToolbarItem
             Command="{Binding AboutCommand}"
             IconImageSource="ic_action_info.png"
-            Text="About" />
+            Text="About"
+            Priority="1"
+            Order="Primary" />
     </ContentPage.ToolbarItems>
     <ContentPage.Content>
         <ScrollView>
-            <Grid Padding="8" RowSpacing="8">
+            <Grid Padding="8"
+                  RowSpacing="8">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="Auto" />
                     <RowDefinition Height="Auto" />
@@ -78,6 +81,7 @@
                     Grid.ColumnSpan="3"
                     BorderColor="{StaticResource AccentColor}"
                     CornerRadius="125"
+                    HasShadow="False"
                     HeightRequest="250"
                     Rotation="{Binding North}"
                     WidthRequest="250">
