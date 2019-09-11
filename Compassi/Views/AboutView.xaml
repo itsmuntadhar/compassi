@@ -1,0 +1,53 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="Compassi.Views.AboutView"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    Title="{Binding Title}"
+    mc:Ignorable="d">
+    <ContentPage.Content>
+        <Label Margin="8">
+            <Label.FormattedText>
+                <FormattedString>
+                    <Span
+                        FontSize="Title"
+                        Text="Compassi&#xa;"
+                        TextColor="Black" />
+                    <Span FontSize="Subtitle" Text="a simple app to demonstrate Xamarin.Essential's Compass and Location APIs&#xa;" />
+                    <Span FontSize="Subtitle" Text="&#xa;Developed by " />
+                    <Span
+                        FontSize="Subtitle"
+                        Text="Muntadhar Haydar&#xa;"
+                        TextColor="Blue"
+                        TextDecorations="Underline">
+                        <Span.GestureRecognizers>
+                            <TapGestureRecognizer Command="{Binding OpenWebsiteCommand}" CommandParameter="Dev" />
+                        </Span.GestureRecognizers>
+                    </Span>
+                    <Span FontSize="Subtitle" Text="&#xa;Compass Icon by " />
+                    <Span
+                        FontSize="Subtitle"
+                        Text="Good Ware"
+                        TextColor="Blue"
+                        TextDecorations="Underline">
+                        <Span.GestureRecognizers>
+                            <TapGestureRecognizer Command="{Binding OpenWebsiteCommand}" CommandParameter="GD" />
+                        </Span.GestureRecognizers>
+                    </Span>
+                    <Span FontSize="Subtitle" Text=" from " />
+                    <Span
+                        FontSize="Subtitle"
+                        Text="Flaticon"
+                        TextColor="Blue"
+                        TextDecorations="Underline">
+                        <Span.GestureRecognizers>
+                            <TapGestureRecognizer Command="{Binding OpenWebsiteCommand}" CommandParameter="FL" />
+                        </Span.GestureRecognizers>
+                    </Span>
+                </FormattedString>
+            </Label.FormattedText>
+        </Label>
+    </ContentPage.Content>
+</ContentPage>

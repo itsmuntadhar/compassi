@@ -1,0 +1,126 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="Compassi.Views.MainView"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    Title="{Binding Title}"
+    mc:Ignorable="d">
+    <ContentPage.ToolbarItems>
+        <ToolbarItem
+            Command="{Binding AboutCommand}"
+            IconImageSource="ic_action_info.png"
+            Text="About" />
+    </ContentPage.ToolbarItems>
+    <ContentPage.Content>
+        <ScrollView>
+            <Grid Padding="8" RowSpacing="8">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="250" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition />
+                    <ColumnDefinition Width="110" />
+                    <ColumnDefinition Width="30" />
+                    <ColumnDefinition Width="110" />
+                    <ColumnDefinition />
+                </Grid.ColumnDefinitions>
+                <Entry
+                    Grid.Row="0"
+                    Grid.ColumnSpan="5"
+                    BackgroundColor="Transparent"
+                    Keyboard="Numeric"
+                    Placeholder="target latitude"
+                    Text="{Binding TargetLat}" />
+                <Entry
+                    Grid.Row="1"
+                    Grid.ColumnSpan="5"
+                    BackgroundColor="Transparent"
+                    Keyboard="Numeric"
+                    Placeholder="target longitude"
+                    Text="{Binding TargetLon}" />
+                <Label
+                    Grid.Row="2"
+                    Grid.Column="0"
+                    Grid.ColumnSpan="5">
+                    <Label.FormattedText>
+                        <FormattedString>
+                            <Span Text="current location: " />
+                            <Span Text="{Binding Location.Latitude}" />
+                            <Span Text=", " />
+                            <Span Text="{Binding Location.Longitude}" />
+                            <Span Text="&#xa;" />
+                            <Span Text="{Binding RequestLocationBearing, StringFormat='input location bearing: {0}'}" />
+                            <Span Text="&#xa;" />
+                            <Span Text="{Binding North, StringFormat='north: {0}'}" />
+                            <Span Text="&#xa;" />
+                            <Span Text="{Binding Angle, StringFormat='location bearing - north: {0}'}" />
+                        </FormattedString>
+                    </Label.FormattedText>
+                </Label>
+                <BoxView
+                    Grid.Row="3"
+                    Grid.Column="1"
+                    Grid.ColumnSpan="3"
+                    CornerRadius="125"
+                    HeightRequest="250"
+                    WidthRequest="250"
+                    Color="White" />
+                <Frame
+                    Grid.Row="3"
+                    Grid.Column="1"
+                    Grid.ColumnSpan="3"
+                    BorderColor="{StaticResource AccentColor}"
+                    CornerRadius="125"
+                    HeightRequest="250"
+                    Rotation="{Binding North}"
+                    WidthRequest="250">
+                    <Grid>
+                        <Label
+                            HorizontalOptions="Center"
+                            Text="N"
+                            VerticalOptions="Start" />
+                        <Label
+                            HorizontalOptions="End"
+                            Text="E"
+                            VerticalOptions="Center" />
+                        <Label
+                            HorizontalOptions="Center"
+                            Text="S"
+                            VerticalOptions="End" />
+                        <Label
+                            HorizontalOptions="Start"
+                            Text="W"
+                            VerticalOptions="Center" />
+                    </Grid>
+                </Frame>
+                <Image
+                    Grid.Row="3"
+                    Grid.Column="2"
+                    Aspect="AspectFill"
+                    HeightRequest="140"
+                    Rotation="{Binding Angle}"
+                    Source="{Binding NeedleSource}"
+                    WidthRequest="60" />
+                <Button
+                    Grid.Row="4"
+                    Grid.Column="0"
+                    Grid.ColumnSpan="5"
+                    Command="{Binding GetCurrentLocationCommand}"
+                    Text="get current location" />
+                <Button
+                    Grid.Row="5"
+                    Grid.Column="0"
+                    Grid.ColumnSpan="5"
+                    Command="{Binding ToggleCompassCommand}"
+                    Text="{Binding ToggleButtonText}" />
+            </Grid>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>
