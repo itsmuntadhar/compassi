@@ -13,7 +13,6 @@ namespace Compassi
             MainPage = new NavigationPage(new Views.MainView()
             {
                 Visual = VisualMarker.Material,
-                BackgroundColor = Color.FromHex("#121212")
             });
         }
 
